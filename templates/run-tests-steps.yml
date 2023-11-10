@@ -1,0 +1,15 @@
+parameters:
+  - name: testToRun
+    default: ''
+    type: string
+
+steps:
+  - task: Maven@3
+    displayName: Build Test Project
+    inputs:
+      javaHomeOption: JDKVersion
+      jdkVersionOption: 11
+      jdkArchitectureOption: x64
+      goals: 'test -P sample-test'
+      mavenOptions: '-Xmx3072m'
+      mavenPOMFile: 'android/testng-examples/pom.xml'
